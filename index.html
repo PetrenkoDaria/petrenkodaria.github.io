@@ -1,13 +1,760 @@
-<!DOCTYPE html>
-<html lang="ru" >
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Daria Petrenko</title>
+	<meta charset="utf-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Desktop</title>
+	<!-- <style>
 
+		#video-background {
+			position: fixed;
+			top: 0;
+			left: 0;
+			min-width: 100%;
+			min-height: 100%;
+			z-index: -1;
+		}
+
+	</style> -->
+	
+	<link rel="stylesheet" href="css/style.css">
+	  <style></style>
+	  
+	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://use.fontawesome.com/7564c92c65.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <script src='js/main.js'></script> 
+	  
+
+  
+  <script>
+  $(function() {
+  	$(".draggable").draggable();
+  });
+  $(function() {
+	$(".draggable-text").draggable();
+  });
+  $(function() {
+  	$(".modal-window").draggable();
+  });
+  
+
+	/* Переключение между добавлением и удалением «отзывчивого» класса в topnav, когда пользователь нажимает на значок.*/
+	function myFunction() {
+	    var x = document.getElementById("myTopnav");
+	    if (x.className === "topnav") {
+	        x.className += " responsive";
+	    } else {
+	        x.className = "topnav";
+	    }
+	}
+	  </script>
+	  
 </head>
-<body>
-<header class="header">
-<main class="main">
-<h1>Hello, world!</h1>
+<body onload="enableEditMode(); enableEditModeQ()">
+	<!--
+	<video id="video-background" autoplay loop muted>
+		<source src="video.mp4" type="video/mp4">
+		<source src="background.webm" type="video/webm">
+	</video> -->
+	
+	<!--
+	<script>
+		const video = document.getElementById("video-background");
+	
+		video.addEventListener("ended", function() {
+			// Когда видео завершается, переключаем его в реверс
+			video.currentTime = 0;
+			video.playbackRate = -1; // Устанавливаем скорость воспроизведения в -1 для реверса
+			video.play(); // Запускаем видео в реверсе
+		});
+	</script> 
+    -->
+	
+	<script>
+		const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+	
+		const body = document.querySelector('body');
+	
+		if (isDarkMode) {
+			body.classList.add('dark-theme');
+		} else {
+			body.classList.add('light-theme');
+		}
+	</script>
+	
+	<div class="topnav" id="myTopnav">
+		<a href="#home" class="active"></a>
+		<div class="dropdown">
+			<button class="dropbtn"><b>Daria Petrenko</b> 
+				<!-- <i class="fa fa-caret-down"></i> -->
+			</button>
+			
+		</div>
+		
+		
+		<div class="dropdown">
+			<button class="dropbtn">Contact 
+				<!-- <i class="fa fa-caret-down"></i> -->
+			</button>
+			<div class="dropdown-content">
+				<a href="mailto:petrenkodaria.github@icloud.com?subject=Github">Email</a>
+			    <a href="https://github.com/PetrenkoDaria">Github</a>
+			   
+			</div>
+		</div>
+		<a href="#open-modal">About</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+	</div>
+		  
+	
+	<div class="section group">
+		<div class="col span_1_of_4">
+			<div class="draggable-text">
+				<div class="icon-box-text"><a href="#open-modal-Converter">
+				<img class="thumb-text" src="img/icon.png" alt=""/> </a></div>
+				<p class="filename">Converter</p>
+			</div>
+		</div>
+		
+		<div class="col span_1_of_4">
+			<div class="draggable-text">
+				<div class="icon-box-text"><a href="#open-modal-Q">
+				<img class="thumb-text" src="img/icon.png" alt="" /> </a></div>
+				
+				<p class="filename">Quote</p>
+			</div>
+		</div>
+		
+		<div class="col span_1_of_4">
+			<div class="draggable-text">
+				<div class="icon-box-text"><a href="#open-modal-R">
+				<img class="thumb-text" src="img/icon.png" alt="" /> </a></div>
+				
+				<p class="filename">Run</p>
+			</div>
+		</div>
+		<!-- 
+		<div class="col span_1_of_4">
+			<div class="draggable">
+				<div class="icon-box"><a href="#">
+				<img class="thumb" src="img/sauce-min.png" alt="" /> </a></div>
+				
+				<p class="filename">sauce.jpg</p>
+			</div>
+		</div> -->
+	</div>
+	
+	<!-- <div class="section group">
+		<div class="col span_1_of_4">
+			<div class="draggable">
+				<div class="icon-box"><a href="#">
+				<img class="thumb" src="img/kk-spin.jpg" alt="" /> </a></div>
+				<p class="filename">kristian kirk.jpg</p>
+			</div>
+		</div>
+		
+		<div class="col span_1_of_4">
+			<div class="draggable">
+				<div class="icon-box"><a href="#">
+				<img class="thumb" src="img/p-icons.jpg" alt="" /> </a></div>
+				
+				<p class="filename">rebrand.jpg</p>
+			</div>
+		</div>
+		
+		<div class="col span_1_of_4">
+			<div class="draggable">
+				<div class="icon-box"><a href="#">
+				<img class="thumb" src="img/36days-a.jpg" alt="" /> </a></div>
+				<p class="filename">36days 17.jpg</p>
+			</div>
+		</div>
+		
+		<div class="col span_1_of_4">
+			<div class="draggable">
+				<div class="icon-box"><a href="#">
+				<img class="thumb" src="img/h2info.png" alt="" /> </a></div>
+				
+				<p class="filename">h2info.png</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="section group">
+		<div class="col span_1_of_4">
+			<div class="draggable">
+				<div class="icon-box"><a href="#">
+				<img class="thumb" src="img/UrbanTap.jpg" alt="" /> </a></div>
+				<p class="filename">urban tap.jpg</p>
+			</div>
+		</div>
+		
+		<div class="col span_1_of_4">
+			<div class="draggable">
+				<div class="icon-box"><a href="#">
+				<img class="thumb" src="img/rommyh.jpg" alt="" /> </a></div>
+				
+				<p class="filename">rommyh.jpg</p>
+			</div>
+		</div>
+		
+		<div class="col span_1_of_4">
+			<div class="draggable">
+				<div class="icon-box"><a href="#">
+				<img class="thumb" src="img/welsfest.jpg" alt="" /> </a></div>
+				<p class="filename">welsfest.jpg</p>
+			</div>
+		</div>
+		
+		<div class="col span_1_of_4">
+			<div class="draggable">
+				<div class="icon-box"><a href="#">
+				<img class="thumb" src="img/36days-2.jpg" alt="" /> </a></div>
+				
+				<p class="filename">36days 18.jpg</p>
+			</div>
+		</div>
+	</div> -->
+	
+	<!--<div class="window">
+		<div class="windowFrame">
+			<div class="windowControls">
+			</div>
+			Title
+		</div>
+		<div class="windowsContent">
+		</div>
+	</div>-->
+	
+	<div id="open-modal" class="modal-window">
+			<div>
+				<div class="modal-close">
+					<a href="#modal-close" class="closeButton" title="Close"></a>
+					<p class="windowTitle">About</p>
+				</div>
+				<div class="windowContent">
+					<div>
+						<p>I'm <b>Daria Petrenko</b>, this is my resume website.</p>
+						<p>Here you will find a description of my projects.</p>
+						<p>The site is still under development.</p>
+						<p><i>Stay tuned and learn more about me!</i></p>
+					</div>
+				</div>
+			</div>
+	</div>
+	
+<!-- CONVERTER -->
+	<div id="open-modal-Converter" class="modal-window">
+			<div>
+				<div class="modal-close">
+					<a href="#modal-close" class="closeButton" title="Close"></a>
+					<p class="windowTitle">Converter</p>
+				</div>
+				<div class="windowContent">
+					<div id ="textEditor">
+						<div id ="theRibbon">
+						  <button id="boldButton" onclick="execCmd('Bold');" ><i class="fa fa-bold" aria-hidden="true"></i></button>
+						  <button id="italicButton" onclick="execCmd('Italic');" ><i class="fa fa-italic" aria-hidden="true"></i></button>
+						  <button id="underlineButton" onclick="execCmd('Underline');" ><i class="fa fa-underline" aria-hidden="true"></i></button>
+						  <button id="strikethroughButton" onclick="execCmd('Strikethrough');" ><i class="fa fa-strikethrough" aria-hidden="true"></i></button>
+						  <button id="align-leftButton" onclick="execCmd('justifyLeft');" ><i class="fa fa-align-left" aria-hidden="true"></i></button>
+						  <button id="align-centerButton" onclick="execCmd('justifyCenter');" ><i class="fa fa-align-center" aria-hidden="true"></i></button>
+						  <button id="align-rightButton" onclick="execCmd('justifyRight');" ><i class="fa fa-align-right" aria-hidden="true"></i></button>
+						  <button id="align-justifyButton" onclick="execCmd('justifyFull');" ><i class="fa fa-align-justify" aria-hidden="true"></i></button>
+						  <button id="indentButton" onclick="execCmd('indent');" ><i class="fa fa-indent" aria-hidden="true"></i></button>
+						  <button id="dedentButton" onclick="execCmd('outdent');" ><i class="fa fa-dedent" aria-hidden="true"></i></button>
+						  <button id="subscriptButton" onclick="execCmd('subscript');" ><i class="fa fa-subscript" aria-hidden="true"></i></button>
+						  <button id="superscriptButton" onclick="execCmd('superscript');" ><i class="fa fa-superscript" aria-hidden="true"></i></button>
+						  <button id="list-ulButton" onclick="execCmd('insertUnorderedList');" ><i class="fa fa-list-ul" aria-hidden="true"></i></button>
+						  <button id="list-olButton" onclick="execCmd('insertOrderedList');" ><i class="fa fa-list-ol" aria-hidden="true"></i></button>
+						  <button id="paragraphButton" onclick="execCmd('insertParagraph');" ><i class="fa fa-paragraph" aria-hidden="true"></i></button>
+						  <select onchange="execCommandWithArg('formatBlock',this.value);">
+							<option value="H1">H1</option>
+							<option value="H2">H2</option>
+							<option value="H3">H3</option>
+							<option value="H4">H4</option>
+							<option value="H5">H5</option>
+							<option value="H6">H6</option>
+						  </select>
+						  <button id="HRButton" onclick="execCmd('insertHorizontalRule');" >HR</button>
+						  <button id="linkButton" onclick="execCommandWithArg('createLink',prompt('Enter a Url','http://'));" ><i class="fa fa-link" aria-hidden="true"></i></button>
+						  <button id="unlinkButton" onclick="execCmd('unlink');" ><i class="fa fa-unlink" aria-hidden="true"></i></button>
+						  <select onchange="execCommandWithArg('fontName',this.value);">
+							<option value="Arial">Arial</option>
+							<option value="Comic Sans MS">Comic Sans MS</option>
+							<option value="Courier">Courier</option>
+							<option value="Georgia">Georgia</option>
+							<option value="Tahoma">Tahoma</option>
+							<option value="Times New Roman">Times New Roman</option>
+							<option value="Verdana">Verdana</option>
+						  </select>
+						  <select onchange="execCommandWithArg('fontSize',this.value);">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+						  </select>
+						  Fore Color:<input type="color" onchange="execCommandWithArg('foreColor',this.value);"/>
+						  Background:<input type="color" onchange="execCommandWithArg('hiliteColor',this.value);"/>
+						  <button id="imageButton" onclick="execCommandWithArg('insertImage', prompt('Enter a image Url','http://'));" ><i class="fa fa-file-image-o" aria-hidden="true"></i></button>
+						  <button id="selectButton" onclick="execCmd('selectAll');">Select all</button>
+						</div>
+					  </div>
+						 <div  id="myIframe">
+						<iframe id="richTextField" name="richTextField" frameborder="0" style="margin-top:20px; position: relative; height: 100%; width: 100%; height: 500px;"></iframe>
+						</div>
+				</div>
+			</div>
+	</div>
+	
+	<!-- QUOTE -->
+	<div id="open-modal-Q" class="modal-window">
+			<div>
+				<div class="modal-close">
+					<a href="#modal-close" class="closeButton" title="Close"></a>
+					<p class="windowTitle">Quote</p>
+				</div>
+				<div class="windowContent">
+					<div id ="textEditor">
+						<div id ="theRibbon">
+						  <button id="boldButton" onclick="execCmdQ('Bold');" ><i class="fa fa-bold" aria-hidden="true"></i></button>
+						  <button id="italicButton" onclick="execCmdQ('Italic');" ><i class="fa fa-italic" aria-hidden="true"></i></button>
+						  <button id="underlineButton" onclick="execCmdQ('Underline');" ><i class="fa fa-underline" aria-hidden="true"></i></button>
+						  <button id="strikethroughButton" onclick="execCmdQ('Strikethrough');" ><i class="fa fa-strikethrough" aria-hidden="true"></i></button>
+						  <button id="align-leftButton" onclick="execCmdQ('justifyLeft');" ><i class="fa fa-align-left" aria-hidden="true"></i></button>
+						  <button id="align-centerButton" onclick="execCmdQ('justifyCenter');" ><i class="fa fa-align-center" aria-hidden="true"></i></button>
+						  <button id="align-rightButton" onclick="execCmdQ('justifyRight');" ><i class="fa fa-align-right" aria-hidden="true"></i></button>
+						  <button id="align-justifyButton" onclick="execCmdQ('justifyFull');" ><i class="fa fa-align-justify" aria-hidden="true"></i></button>
+						  <button id="indentButton" onclick="execCmdQ('indent');" ><i class="fa fa-indent" aria-hidden="true"></i></button>
+						  <button id="dedentButton" onclick="execCmdQ('outdent');" ><i class="fa fa-dedent" aria-hidden="true"></i></button>
+						  <button id="subscriptButton" onclick="execCmdQ('subscript');" ><i class="fa fa-subscript" aria-hidden="true"></i></button>
+						  <button id="superscriptButton" onclick="execCmdQ('superscript');" ><i class="fa fa-superscript" aria-hidden="true"></i></button>
+						  <button id="list-ulButton" onclick="execCmdQ('insertUnorderedList');" ><i class="fa fa-list-ul" aria-hidden="true"></i></button>
+						  <button id="list-olButton" onclick="execCmdQ('insertOrderedList');" ><i class="fa fa-list-ol" aria-hidden="true"></i></button>
+						  <button id="paragraphButton" onclick="execCmdQ('insertParagraph');" ><i class="fa fa-paragraph" aria-hidden="true"></i></button>
+						  <select onchange="execCommandWithArgQ('formatBlock',this.value);">
+							<option value="H1">H1</option>
+							<option value="H2">H2</option>
+							<option value="H3">H3</option>
+							<option value="H4">H4</option>
+							<option value="H5">H5</option>
+							<option value="H6">H6</option>
+						  </select>
+						  <button id="HRButton" onclick="execCmdQ('insertHorizontalRule');" >HR</button>
+						  <button id="linkButton" onclick="execCommandWithArgQ('createLink',prompt('Enter a Url','http://'));" ><i class="fa fa-link" aria-hidden="true"></i></button>
+						  <button id="unlinkButton" onclick="execCmdQ('unlink');" ><i class="fa fa-unlink" aria-hidden="true"></i></button>
+						  <select onchange="execCommandWithArgQ('fontName',this.value);">
+							<option value="Arial">Arial</option>
+							<option value="Comic Sans MS">Comic Sans MS</option>
+							<option value="Courier">Courier</option>
+							<option value="Georgia">Georgia</option>
+							<option value="Tahoma">Tahoma</option>
+							<option value="Times New Roman">Times New Roman</option>
+							<option value="Verdana">Verdana</option>
+						  </select>
+						  <select onchange="execCommandWithArgQ('fontSize',this.value);">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+						  </select>
+						  Fore Color:<input type="color" onchange="execCommandWithArgQ('foreColor',this.value);"/>
+						  Background:<input type="color" onchange="execCommandWithArgQ('hiliteColor',this.value);"/>
+						  <button id="imageButton" onclick="execCommandWithArgQ('insertImage', prompt('Enter a image Url','http://'));" ><i class="fa fa-file-image-o" aria-hidden="true"></i></button>
+						  <button id="selectButton" onclick="execCmdQ('selectAll');">Select all</button>
+						</div>
+					  </div>
+						 <div  id="myIframe">
+						<iframe id="richTextFieldQ" name="richTextFieldQ" frameborder="0" style="margin-top:20px; position: relative; height: 100%; width: 100%; height: 500px;"></iframe>
+						</div>
+				</div>
+			</div>
+	</div>
+	
+	<!-- RUN -->
+	<div id="open-modal-R" class="modal-window">
+			<div>
+				<div class="modal-close">
+					<a href="#modal-close" class="closeButton" title="Close"></a>
+					<p class="windowTitle">Run</p>
+				</div>
+				<div class="windowContent">
+					<div id ="textEditor">
+						<div id ="theRibbon">
+						  <button id="boldButton" onclick="execCmdQ('Bold');" ><i class="fa fa-bold" aria-hidden="true"></i></button>
+						  <button id="italicButton" onclick="execCmdQ('Italic');" ><i class="fa fa-italic" aria-hidden="true"></i></button>
+						  <button id="underlineButton" onclick="execCmdQ('Underline');" ><i class="fa fa-underline" aria-hidden="true"></i></button>
+						  <button id="strikethroughButton" onclick="execCmdQ('Strikethrough');" ><i class="fa fa-strikethrough" aria-hidden="true"></i></button>
+						  <button id="align-leftButton" onclick="execCmdQ('justifyLeft');" ><i class="fa fa-align-left" aria-hidden="true"></i></button>
+						  <button id="align-centerButton" onclick="execCmdQ('justifyCenter');" ><i class="fa fa-align-center" aria-hidden="true"></i></button>
+						  <button id="align-rightButton" onclick="execCmdQ('justifyRight');" ><i class="fa fa-align-right" aria-hidden="true"></i></button>
+						  <button id="align-justifyButton" onclick="execCmdQ('justifyFull');" ><i class="fa fa-align-justify" aria-hidden="true"></i></button>
+						  <button id="indentButton" onclick="execCmdQ('indent');" ><i class="fa fa-indent" aria-hidden="true"></i></button>
+						  <button id="dedentButton" onclick="execCmdQ('outdent');" ><i class="fa fa-dedent" aria-hidden="true"></i></button>
+						  <button id="subscriptButton" onclick="execCmdQ('subscript');" ><i class="fa fa-subscript" aria-hidden="true"></i></button>
+						  <button id="superscriptButton" onclick="execCmdQ('superscript');" ><i class="fa fa-superscript" aria-hidden="true"></i></button>
+						  <button id="list-ulButton" onclick="execCmdQ('insertUnorderedList');" ><i class="fa fa-list-ul" aria-hidden="true"></i></button>
+						  <button id="list-olButton" onclick="execCmdQ('insertOrderedList');" ><i class="fa fa-list-ol" aria-hidden="true"></i></button>
+						  <button id="paragraphButton" onclick="execCmdQ('insertParagraph');" ><i class="fa fa-paragraph" aria-hidden="true"></i></button>
+						  <select onchange="execCommandWithArgQ('formatBlock',this.value);">
+							<option value="H1">H1</option>
+							<option value="H2">H2</option>
+							<option value="H3">H3</option>
+							<option value="H4">H4</option>
+							<option value="H5">H5</option>
+							<option value="H6">H6</option>
+						  </select>
+						  <button id="HRButton" onclick="execCmdQ('insertHorizontalRule');" >HR</button>
+						  <button id="linkButton" onclick="execCommandWithArgQ('createLink',prompt('Enter a Url','http://'));" ><i class="fa fa-link" aria-hidden="true"></i></button>
+						  <button id="unlinkButton" onclick="execCmdQ('unlink');" ><i class="fa fa-unlink" aria-hidden="true"></i></button>
+						  <select onchange="execCommandWithArgQ('fontName',this.value);">
+							<option value="Arial">Arial</option>
+							<option value="Comic Sans MS">Comic Sans MS</option>
+							<option value="Courier">Courier</option>
+							<option value="Georgia">Georgia</option>
+							<option value="Tahoma">Tahoma</option>
+							<option value="Times New Roman">Times New Roman</option>
+							<option value="Verdana">Verdana</option>
+						  </select>
+						  <select onchange="execCommandWithArgQ('fontSize',this.value);">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+						  </select>
+						  Fore Color:<input type="color" onchange="execCommandWithArgQ('foreColor',this.value);"/>
+						  Background:<input type="color" onchange="execCommandWithArgQ('hiliteColor',this.value);"/>
+						  <button id="imageButton" onclick="execCommandWithArgQ('insertImage', prompt('Enter a image Url','http://'));" ><i class="fa fa-file-image-o" aria-hidden="true"></i></button>
+						  <button id="selectButton" onclick="execCmdQ('selectAll');">Select all</button>
+						</div>
+					  </div>
+						 <div  id="myIframe">
+						<iframe id="richTextFieldR" name="richTextFieldR" frameborder="0" style="margin-top:20px; position: relative; height: 100%; width: 100%; height: 500px;"></iframe>
+						</div>
+				</div>
+			</div>
+	</div>
+	
+	
+
+	<script>
+	  // Функция для установки начального текста в iframe
+	  function setInitialText() {
+		var iframe = document.getElementById('richTextField');
+		var iframeQ = document.getElementById('richTextFieldQ');
+		var iframeR = document.getElementById('richTextFieldR');
+		var initialText = `
+		 <h2 style="text-align: center;"><strong>Converter</strong></h2>
+		 
+		 <table>
+		 <thead>
+		 <tr>
+		 <th style="text-align:center">iOS</th>
+		 <th style="text-align:center">Widget</th>
+		 <th style="text-align:center">MacOS</th>
+		 <th style="text-align:center">Status bar</th>
+		 </tr>
+		 </thead>
+		 <tbody>
+		 <tr>
+		 <td style="text-align:center"><img src="img/GIF-Converter/iOS.gif" alt="isolated" width="140"/></td>
+		 <td style="text-align:center"><img src="img/GIF-Converter/widget.gif" alt="isolated" width="140"/></td>
+		 <td style="text-align:center"><img src="img/GIF-Converter/macOS.gif" width="290"/></td>
+		 <td style="text-align:center"><img src="img/GIF-Converter/statusBar.gif" alt="isolated" width="190"/></td>
+		 </tr>
+		 </tbody>
+		 </table>
+
+		 <p>This project uses <strong>MVVM</strong> architecture with <strong>SwiftUI</strong> framework to create a user interface. The data source is the open <a href="https://currate.ru" target="_blank">API Converter</a>, which is interacted with via <strong>REST API</strong> using the popular <strong>Alamofire</strong> library. Data is stored and managed using <strong>CoreData</strong>. Also, the data is output to widgets using <strong>WidgetKit</strong>.</p>
+	
+		 <p>The project is available on <a href="https://github.com/PetrenkoDaria/Converter" target="_blank">GitHub</a>.</p>
+		 <p><textarea id="BFI_DATA" style="width: 1px; height: 1px; display: none;"></textarea></p>
+		 <div id="WidgetFloaterPanels" class="LTRStyle" style="display: none; text-align: left; direction: ltr; visibility: hidden;" translate="no">
+		 <div id="WidgetFloater" style="display: none;">
+		 <div id="WidgetLogoPanel"><span id="WidgetTranslateWithSpan">TRANSLATE with <img id="FloaterLogo" alt="" /></span> <span id="WidgetCloseButton" title="Exit Translation">x</span></div>
+		 <div id="LanguageMenuPanel">
+		 <div class="DDStyle_outer"><input id="LanguageMenu_svid" style="display: none;" autocomplete="on" name="LanguageMenu_svid" type="text" value="en" /> <input id="LanguageMenu_textid" style="display: none;" autocomplete="on" name="LanguageMenu_textid" type="text" /> <span id="__LanguageMenu_header" class="DDStyle" tabindex="0">English</span>
+		 <div style="position: relative; text-align: left; left: 0;">
+		 <div style="position: absolute; ;left: 0px;">
+		 <div id="__LanguageMenu_popup" class="DDStyle" style="display: none;">
+		 <table id="LanguageMenu" border="0">
+		 <tbody>
+		 <tr>
+		 <td><a tabindex="-1" href="#ar">Arabic</a></td>
+		 <td><a tabindex="-1" href="#he">Hebrew</a></td>
+		 <td><a tabindex="-1" href="#pl">Polish</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#bg">Bulgarian</a></td>
+		 <td><a tabindex="-1" href="#hi">Hindi</a></td>
+		 <td><a tabindex="-1" href="#pt">Portuguese</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#ca">Catalan</a></td>
+		 <td><a tabindex="-1" href="#mww">Hmong Daw</a></td>
+		 <td><a tabindex="-1" href="#ro">Romanian</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#zh-CHS">Chinese Simplified</a></td>
+		 <td><a tabindex="-1" href="#hu">Hungarian</a></td>
+		 <td><a tabindex="-1" href="#ru">Russian</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#zh-CHT">Chinese Traditional</a></td>
+		 <td><a tabindex="-1" href="#id">Indonesian</a></td>
+		 <td><a tabindex="-1" href="#sk">Slovak</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#cs">Czech</a></td>
+		 <td><a tabindex="-1" href="#it">Italian</a></td>
+		 <td><a tabindex="-1" href="#sl">Slovenian</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#da">Danish</a></td>
+		 <td><a tabindex="-1" href="#ja">Japanese</a></td>
+		 <td><a tabindex="-1" href="#es">Spanish</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#nl">Dutch</a></td>
+		 <td><a tabindex="-1" href="#tlh">Klingon</a></td>
+		 <td><a tabindex="-1" href="#sv">Swedish</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#en">English</a></td>
+		 <td><a tabindex="-1" href="#ko">Korean</a></td>
+		 <td><a tabindex="-1" href="#th">Thai</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#et">Estonian</a></td>
+		 <td><a tabindex="-1" href="#lv">Latvian</a></td>
+		 <td><a tabindex="-1" href="#tr">Turkish</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#fi">Finnish</a></td>
+		 <td><a tabindex="-1" href="#lt">Lithuanian</a></td>
+		 <td><a tabindex="-1" href="#uk">Ukrainian</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#fr">French</a></td>
+		 <td><a tabindex="-1" href="#ms">Malay</a></td>
+		 <td><a tabindex="-1" href="#ur">Urdu</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#de">German</a></td>
+		 <td><a tabindex="-1" href="#mt">Maltese</a></td>
+		 <td><a tabindex="-1" href="#vi">Vietnamese</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#el">Greek</a></td>
+		 <td><a tabindex="-1" href="#no">Norwegian</a></td>
+		 <td><a tabindex="-1" href="#cy">Welsh</a></td>
+		 </tr>
+		 <tr>
+		 <td><a tabindex="-1" href="#ht">Haitian Creole</a></td>
+		 <td><a tabindex="-1" href="#fa">Persian</a></td>
+		 <td>&nbsp;</td>
+		 </tr>
+		 </tbody>
+		 </table>
+		 <img style="height: 7px; width: 17px; border-width: 0px; left: 20px;" alt="" /></div>
+		 </div>
+		 </div>
+		 </div>
+		 </div>
+		 <div id="CTFLinksPanel"><span id="ExternalLinksPanel"><a id="HelpLink" title="Help" href="https://go.microsoft.com/?linkid=9722454" target="_blank"> <img id="HelpImg" alt="" /></a> <a id="EmbedLink" title="Get this widget for your own site"></a> <img id="EmbedImg" alt="" /> <a id="ShareLink" title="Share translated page with friends"></a> <img id="ShareImg" alt="" /> </span></div>
+		 <div id="FloaterProgressBar">&nbsp;</div>
+		 </div>
+		 <div id="WidgetFloaterCollapsed" style="display: none;">TRANSLATE with <img id="CollapsedLogoImg" alt="" /></div>
+		 <div id="FloaterSharePanel" style="display: none;">
+		 <div id="ShareTextDiv"><span id="ShareTextSpan"> COPY THE URL BELOW </span></div>
+		 <div id="ShareTextboxDiv"><input id="ShareTextbox" name="ShareTextbox" readonly="readonly" type="text" /> <!--a id="TwitterLink" title="Share on Twitter"> <img id="TwitterImg" /></a> <a-- id="FacebookLink" title="Share on Facebook"> <img id="FacebookImg" /></a--> <a id="EmailLink" title="Email this translation"></a> <img id="EmailImg" alt="" /></div>
+		 <div id="ShareFooter"><span id="ShareHelpSpan"><a id="ShareHelpLink"></a> <img id="ShareHelpImg" alt="" /></span> <span id="ShareBackSpan"><a id="ShareBack" title="Back To Translation"></a> Back</span></div>
+		 <input id="EmailSubject" name="EmailSubject" type="hidden" value="Check out this page in {0} translated from {1}" /> <input id="EmailBody" name="EmailBody" type="hidden" value="Translated: {0}%0d%0aOriginal: {1}%0d%0a%0d%0aAutomatic translation powered by Microsoft&reg; Translator%0d%0ahttp://www.bing.com/translator?ref=MSTWidget" /> <input id="ShareHelpText" type="hidden" value="This link allows visitors to launch this page and automatically translate it to {0}." /></div>
+		 <div id="FloaterEmbed" style="display: none;">
+		 <div id="EmbedTextDiv"><span id="EmbedTextSpan">EMBED THE SNIPPET BELOW IN YOUR SITE</span> <a id="EmbedHelpLink" title="Copy this code and place it into your HTML."></a> <img id="EmbedHelpImg" alt="" /></div>
+		 <div id="EmbedTextboxDiv"><input id="EmbedSnippetTextBox" name="EmbedSnippetTextBox" readonly="readonly" type="text" value="&lt;div id='MicrosoftTranslatorWidget' class='Dark' style='color:white;background-color:#555555'&gt;&lt;/div&gt;&lt;script type='text/javascript'&gt;setTimeout(function(){var s=document.createElement('script');s.type='text/javascript';s.charset='UTF-8';s.src=((location &amp;&amp; location.href &amp;&amp; location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**&amp;ctf=true&amp;ui=true&amp;settings=manual&amp;from=en';var p=document.getElementsByTagName('head')[0]||document.documentElement;p.insertBefore(s,p.firstChild); },0);&lt;/script&gt;" /></div>
+		 <div id="EmbedNoticeDiv"><span id="EmbedNoticeSpan">Enable collaborative features and customize widget: <a href="http://www.bing.com/widget/translator" target="_blank">Bing Webmaster Portal</a></span></div>
+		 <div id="EmbedFooterDiv"><span id="EmbedBackSpan"><a title="Back To Translation">Back</a></span></div>
+		 </div>
+		 </div>
+	
+		  `;
+		  
+		  // QUOTE
+		  var initialTextQ = `
+		  <h2 style="text-align: center;"><strong>Quote</strong></h2>
+		  
+		  <table>
+		   <thead>
+		   <tr>
+		   <th style="text-align:center">iOS</th>
+		   <th style="text-align:center">Widget</th>
+		   <th style="text-align:center">MacOS</th>
+		   <th style="text-align:center">Status bar</th>
+		   </tr>
+		   </thead>
+		   <tbody>
+		   <tr>
+		   <td style="text-align:center; padding-right: 20px;"><img src="img/Screenshots-Quote/1.jpeg" alt="isolated" width="150"/></td>
+		   <td style="text-align:center; padding-right: 20px;"><img src="img/Screenshots-Quote/2.jpeg" alt="isolated" width="150"/></td>
+		   <td style="text-align:center; padding-right: 20px;"><img src="img/Screenshots-Quote/3.jpeg" width="150"/></td>
+		   <td style="text-align:center; padding-right: 20px;"><img src="img/Screenshots-Quote/4.jpeg" alt="isolated" width="150"/></td>
+		   </tr>
+		   </tbody>
+		   </table>
+		   
+		   
+		  <p>This project uses <strong>MVVM</strong> architecture with <strong>SwiftUI</strong> framework to create the user interface. The data source is the open <a href="https://github.com/lukePeavey/quotable" target="_blank">API Quote</a>, interaction with which is done through <strong>REST API</strong> using the popular library <strong>Alamofire</strong>. Asynchronous loading of images is done through the <strong>Nuke</strong> framework. Data is managed using <strong>CoreData</strong> and rendered into widgets using <strong>WidgetKit</strong>.</p>
+		  <p>The project is available on <a href="https://github.com/PetrenkoDaria/Quote" target="_blank">GitHub</a>.</p>
+		  <p><textarea id="BFI_DATA" style="width: 1px; height: 1px; display: none;"></textarea></p>
+		  <div id="WidgetFloaterPanels" class="LTRStyle" style="display: none; text-align: left; direction: ltr; visibility: hidden;" translate="no">
+		  <div id="WidgetFloater" style="display: none;">
+		  <div id="WidgetLogoPanel"><span id="WidgetTranslateWithSpan">TRANSLATE with <img id="FloaterLogo" alt="" /></span> <span id="WidgetCloseButton" title="Exit Translation">x</span></div>
+		  <div id="LanguageMenuPanel">
+		  <div class="DDStyle_outer"><input id="LanguageMenu_svid" style="display: none;" autocomplete="on" name="LanguageMenu_svid" type="text" value="en" /> <input id="LanguageMenu_textid" style="display: none;" autocomplete="on" name="LanguageMenu_textid" type="text" /> <span id="__LanguageMenu_header" class="DDStyle" tabindex="0">English</span>
+		  <div style="position: relative; text-align: left; left: 0;">
+		  <div style="position: absolute; ;left: 0px;">
+		  <div id="__LanguageMenu_popup" class="DDStyle" style="display: none;">
+		  <table id="LanguageMenu" border="0">
+		  <tbody>
+		  <tr>
+		  <td><a tabindex="-1" href="#ar">Arabic</a></td>
+		  <td><a tabindex="-1" href="#he">Hebrew</a></td>
+		  <td><a tabindex="-1" href="#pl">Polish</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#bg">Bulgarian</a></td>
+		  <td><a tabindex="-1" href="#hi">Hindi</a></td>
+		  <td><a tabindex="-1" href="#pt">Portuguese</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#ca">Catalan</a></td>
+		  <td><a tabindex="-1" href="#mww">Hmong Daw</a></td>
+		  <td><a tabindex="-1" href="#ro">Romanian</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#zh-CHS">Chinese Simplified</a></td>
+		  <td><a tabindex="-1" href="#hu">Hungarian</a></td>
+		  <td><a tabindex="-1" href="#ru">Russian</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#zh-CHT">Chinese Traditional</a></td>
+		  <td><a tabindex="-1" href="#id">Indonesian</a></td>
+		  <td><a tabindex="-1" href="#sk">Slovak</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#cs">Czech</a></td>
+		  <td><a tabindex="-1" href="#it">Italian</a></td>
+		  <td><a tabindex="-1" href="#sl">Slovenian</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#da">Danish</a></td>
+		  <td><a tabindex="-1" href="#ja">Japanese</a></td>
+		  <td><a tabindex="-1" href="#es">Spanish</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#nl">Dutch</a></td>
+		  <td><a tabindex="-1" href="#tlh">Klingon</a></td>
+		  <td><a tabindex="-1" href="#sv">Swedish</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#en">English</a></td>
+		  <td><a tabindex="-1" href="#ko">Korean</a></td>
+		  <td><a tabindex="-1" href="#th">Thai</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#et">Estonian</a></td>
+		  <td><a tabindex="-1" href="#lv">Latvian</a></td>
+		  <td><a tabindex="-1" href="#tr">Turkish</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#fi">Finnish</a></td>
+		  <td><a tabindex="-1" href="#lt">Lithuanian</a></td>
+		  <td><a tabindex="-1" href="#uk">Ukrainian</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#fr">French</a></td>
+		  <td><a tabindex="-1" href="#ms">Malay</a></td>
+		  <td><a tabindex="-1" href="#ur">Urdu</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#de">German</a></td>
+		  <td><a tabindex="-1" href="#mt">Maltese</a></td>
+		  <td><a tabindex="-1" href="#vi">Vietnamese</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#el">Greek</a></td>
+		  <td><a tabindex="-1" href="#no">Norwegian</a></td>
+		  <td><a tabindex="-1" href="#cy">Welsh</a></td>
+		  </tr>
+		  <tr>
+		  <td><a tabindex="-1" href="#ht">Haitian Creole</a></td>
+		  <td><a tabindex="-1" href="#fa">Persian</a></td>
+		  <td>&nbsp;</td>
+		  </tr>
+		  </tbody>
+		  </table>
+		  <img style="height: 7px; width: 17px; border-width: 0px; left: 20px;" alt="" /></div>
+		  </div>
+		  </div>
+		  </div>
+		  </div>
+		  <div id="CTFLinksPanel"><span id="ExternalLinksPanel"><a id="HelpLink" title="Help" href="https://go.microsoft.com/?linkid=9722454" target="_blank"> <img id="HelpImg" alt="" /></a> <a id="EmbedLink" title="Get this widget for your own site"></a> <img id="EmbedImg" alt="" /> <a id="ShareLink" title="Share translated page with friends"></a> <img id="ShareImg" alt="" /> </span></div>
+		  <div id="FloaterProgressBar">&nbsp;</div>
+		  </div>
+		  <div id="WidgetFloaterCollapsed" style="display: none;">TRANSLATE with <img id="CollapsedLogoImg" alt="" /></div>
+		  <div id="FloaterSharePanel" style="display: none;">
+		  <div id="ShareTextDiv"><span id="ShareTextSpan"> COPY THE URL BELOW </span></div>
+		  <div id="ShareTextboxDiv"><input id="ShareTextbox" name="ShareTextbox" readonly="readonly" type="text" /> <!--a id="TwitterLink" title="Share on Twitter"> <img id="TwitterImg" /></a> <a-- id="FacebookLink" title="Share on Facebook"> <img id="FacebookImg" /></a--> <a id="EmailLink" title="Email this translation"></a> <img id="EmailImg" alt="" /></div>
+		  <div id="ShareFooter"><span id="ShareHelpSpan"><a id="ShareHelpLink"></a> <img id="ShareHelpImg" alt="" /></span> <span id="ShareBackSpan"><a id="ShareBack" title="Back To Translation"></a> Back</span></div>
+		  <input id="EmailSubject" name="EmailSubject" type="hidden" value="Check out this page in {0} translated from {1}" /> <input id="EmailBody" name="EmailBody" type="hidden" value="Translated: {0}%0d%0aOriginal: {1}%0d%0a%0d%0aAutomatic translation powered by Microsoft&reg; Translator%0d%0ahttp://www.bing.com/translator?ref=MSTWidget" /> <input id="ShareHelpText" type="hidden" value="This link allows visitors to launch this page and automatically translate it to {0}." /></div>
+		  <div id="FloaterEmbed" style="display: none;">
+		  <div id="EmbedTextDiv"><span id="EmbedTextSpan">EMBED THE SNIPPET BELOW IN YOUR SITE</span> <a id="EmbedHelpLink" title="Copy this code and place it into your HTML."></a> <img id="EmbedHelpImg" alt="" /></div>
+		  <div id="EmbedTextboxDiv"><input id="EmbedSnippetTextBox" name="EmbedSnippetTextBox" readonly="readonly" type="text" value="&lt;div id='MicrosoftTranslatorWidget' class='Dark' style='color:white;background-color:#555555'&gt;&lt;/div&gt;&lt;script type='text/javascript'&gt;setTimeout(function(){var s=document.createElement('script');s.type='text/javascript';s.charset='UTF-8';s.src=((location &amp;&amp; location.href &amp;&amp; location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**&amp;ctf=true&amp;ui=true&amp;settings=manual&amp;from=en';var p=document.getElementsByTagName('head')[0]||document.documentElement;p.insertBefore(s,p.firstChild); },0);&lt;/script&gt;" /></div>
+		  <div id="EmbedNoticeDiv"><span id="EmbedNoticeSpan">Enable collaborative features and customize widget: <a href="http://www.bing.com/widget/translator" target="_blank">Bing Webmaster Portal</a></span></div>
+		  <div id="EmbedFooterDiv"><span id="EmbedBackSpan"><a title="Back To Translation">Back</a></span></div>
+		  </div>
+		  </div>
+		  
+			`;
+			
+			// Run
+			  var initialTextR = `
+			  <h2 id="quote">Soon</h2>
+			 
+			
+			  
+				`;
+				
+		iframe.contentDocument.body.innerHTML = initialText;
+		iframeQ.contentDocument.body.innerHTML = initialTextQ;
+		iframeR.contentDocument.body.innerHTML = initialTextR;
+	  }
+	
+	  // Вызываем функцию для установки начального текста при загрузке страницы
+	  window.onload = setInitialText;
+	  richTextField.document.designMode='On';
+	  richTextFieldQ.document.designMode='On';
+	  richTextFieldR.document.designMode='On';
+	  isInEditMode=true;
+	</script>
+	
+	
+	
+	
+	
+	
 </body>
 </html>
